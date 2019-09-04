@@ -1,0 +1,15 @@
+.\stm322xg_eval\mxml-attr.o: ..\USER\mxml-3.0\mxml-attr.c
+.\stm322xg_eval\mxml-attr.o: ..\USER\mxml-3.0\xcode\xcodeconfig.h
+.\stm322xg_eval\mxml-attr.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\stm322xg_eval\mxml-attr.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\stm322xg_eval\mxml-attr.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\stm322xg_eval\mxml-attr.o: C:\Keil\ARM\ARMCC\bin\..\include\stdarg.h
+.\stm322xg_eval\mxml-attr.o: C:\Keil\ARM\ARMCC\bin\..\include\ctype.h
+.\stm322xg_eval\mxml-attr.o: ..\USER\FatFS\ff.h
+.\stm322xg_eval\mxml-attr.o: ..\USER\FatFS\integer.h
+.\stm322xg_eval\mxml-attr.o: ..\USER\FatFS\ffconf.h
+.\stm322xg_eval\mxml-attr.o: ..\USER\mxml-3.0\mxml-private.h
+.\stm322xg_eval\mxml-attr.o: ..\USER\config.h
+.\stm322xg_eval\mxml-attr.o: ..\USER\ECU_DRV\PassThru.h
+.\stm322xg_eval\mxml-attr.o: ..\USER\mxml-3.0\mxml.h
+.\stm322xg_eval\mxml-attr.o: C:\Keil\ARM\ARMCC\bin\..\include\errno.h
