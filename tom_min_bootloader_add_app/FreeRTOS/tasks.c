@@ -2066,10 +2066,12 @@ BaseType_t xReturn;
 		{
 			/* Should not reach here as if the scheduler is running the
 			function will not return. */
+				printf("tom_min1111111111111111111111111\r\n");
 		}
 		else
 		{
 			/* Should only reach here if a task calls xTaskEndScheduler(). */
+				printf("tom_min2222222222222222222222222\r\n");
 		}
 	}
 	else

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <rt_misc.h>
 #pragma import(__use_no_semihosting_swi)
-extern int  SendChar(int ch); // ??????,?main?????
+extern int  SendChar(int ch); //
 extern int  GetKey(void);
 struct __FILE {
   int handle;                 // Add whatever you need here 

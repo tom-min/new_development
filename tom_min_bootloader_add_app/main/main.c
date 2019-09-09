@@ -13,7 +13,6 @@
 #include "Tom_Common_Api.h"
 #include "use_config.h"
 
-
 #include "ff.h"
 
 
@@ -40,7 +39,8 @@ static u16 fac_ms=0;//ms延时倍乘数
 static u32 count=0;
 static __IO uint32_t TimingDelay;
 
-
+typedef void (*pfun)();
+#define APP_OFFSET 0x10000
 
 TaskHandle_t  data_pack_task;
 TaskHandle_t  data_transfer_task;
@@ -211,8 +211,10 @@ void TIM2_NVIC_Configuration(void)
 
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
     NVIC_InitStructure.NVIC_IRQChannel = TIM2_IRQn;
-    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
+//    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+//    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
+	  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
 }
@@ -332,7 +334,7 @@ void Data_transfer(void *pvParameters)
 				printf("welcome to [%s]\r\n",__func__);
 //				get_task_info(data_transfer_task);
 //				get_task_info(data_pack_task);
-				data_read();
+//				data_read();
 				vTaskDelay(2000);
 		}
 }	
@@ -346,7 +348,7 @@ void Data_pack(void *pvParameters)
 				printf("welcome to [%s]\r\n",__func__);
 //				get_task_info(data_transfer_task);
 //				get_task_info(data_pack_task);
-				data_write();
+//				data_write();
 				vTaskDelay(2000);
 		}
 }
@@ -363,7 +365,7 @@ void Data_sema(void *pvParameters)
 }
 
 
-int main_FreeRTos(void)
+int main_FreeRTOS(void)
 {  
 		BaseType_t tmp;
 	
@@ -420,6 +422,22 @@ int main_FreeRTos(void)
 }
 
 
+
+void appmain_jmp(void)
+{
+//		void (*jumpappmain)();
+		pfun jumpappmain;
+		uint32_t *p;
+	
+		__set_FAULTMASK(1);//关闭总中断
+		printf("\r\n UserJumpToAppCheckVerion success\r\n");
+		p = (uint32_t*)(NVIC_VectTab_FLASH + APP_OFFSET + 4);
+		jumpappmain = (pfun) *p;
+		__set_MSP(*(uint32_t*)(NVIC_VectTab_FLASH + APP_OFFSET));
+		jumpappmain();
+}
+
+
 int main(void)
 {   
 		uint8_t dataFromMCU[] = "hello tom188\r\n";
@@ -430,6 +448,20 @@ int main(void)
 		DIR dirs;
 		char path[50] = {0}; 
 		unsigned int a;
+		
+#ifdef APPLICATION
+		{
+				NVIC_SetVectorTable(NVIC_VectTab_FLASH, APP_OFFSET);//使能偏移位
+//				printf("welcome to APPLICATION\r\n");
+				__enable_irq();
+//				__set_FAULTMASK(0);
+				GPIO_DeInit(GPIOA);
+				GPIO_DeInit(GPIOB);
+				GPIO_DeInit(GPIOC);
+				GPIO_DeInit(GPIOD);
+				GPIO_DeInit(GPIOE);
+		}
+#endif
 		
 		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA|RCC_APB2Periph_AFIO|RCC_APB2Periph_USART1, ENABLE);
 		GPIO_Configure();
@@ -448,9 +480,11 @@ int main(void)
 	//	Key_Init();
 		RCC_GetClocksFreq(&RCC_Clocks);
 		charSize=sizeof(dataFromMCU);	
-		TIM2_NVIC_Configuration();
-		TIMx_Configuration();
-		
+#ifdef BOOTLOADER
+		//这个影响了FREERTOS的调度,会卡死在开始第一个任务里
+//		TIM2_NVIC_Configuration();
+//		TIMx_Configuration();
+#endif
 		//导致任务切换不了，卡死，坑我半天
 	//	if(SysTick_Config(SystemCoreClock / 1000))
 	//	{ 
@@ -468,16 +502,18 @@ int main(void)
 	//	f_mkfs(0,0,512);
 	
 #ifdef 	APPLICATION
-		main_FreeRTos();
+//		__enable_irq();
+		main_FreeRTOS();
 		printf("33333333333\r\n");
 #endif		
 
 #ifdef 	BOOTLOADER
-		START_TIME;
-		Delay_ms(5000);
-		STOP_TIME;
-		__set_FAULTMASK(1);//关闭总中断
-		NVIC_SystemReset();//请求单片机重启
+//		START_TIME;
+//		Delay_ms(5000);
+//		STOP_TIME;
+		appmain_jmp();
+//		__set_FAULTMASK(1);//关闭总中断
+//		NVIC_SystemReset();//请求单片机重启
 #endif	
 }
 
