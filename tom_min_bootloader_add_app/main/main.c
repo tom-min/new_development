@@ -29,8 +29,8 @@
 #define KEY_2				GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_3)
 #define WAKEUP			GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_0)
 
-#define START_TIME  TimingDelay=0;RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 , ENABLE);TIM_Cmd(TIM2, ENABLE)
-#define STOP_TIME  TIM_Cmd(TIM2, DISABLE);RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 , DISABLE)
+#define START_TIME  TimingDelay=0;RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);TIM_Cmd(TIM2,ENABLE)
+#define STOP_TIME  TIM_Cmd(TIM2,DISABLE);RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,DISABLE)
 
 
 GPIO_InitTypeDef GPIO_InitStructure;
@@ -40,7 +40,7 @@ static u32 count=0;
 static __IO uint32_t TimingDelay;
 
 typedef void (*pfun)();
-#define APP_OFFSET 0x10000
+#define APP_OFFSET 0x40000
 
 TaskHandle_t  data_pack_task;
 TaskHandle_t  data_transfer_task;
@@ -334,7 +334,7 @@ void Data_transfer(void *pvParameters)
 				printf("welcome to [%s]\r\n",__func__);
 //				get_task_info(data_transfer_task);
 //				get_task_info(data_pack_task);
-//				data_read();
+				data_read();
 				vTaskDelay(2000);
 		}
 }	
@@ -348,7 +348,7 @@ void Data_pack(void *pvParameters)
 				printf("welcome to [%s]\r\n",__func__);
 //				get_task_info(data_transfer_task);
 //				get_task_info(data_pack_task);
-//				data_write();
+				data_write();
 				vTaskDelay(2000);
 		}
 }

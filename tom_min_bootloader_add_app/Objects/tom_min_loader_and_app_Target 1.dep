@@ -1,5 +1,5 @@
 Dependencies for Project 'tom_min_loader_and_app', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main\main.c)(0x5D760662)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CM3\CoreSupport -I .\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\main -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\User -I .\User\include -I .\fatfs -I .\Utilities\STM32_EVAL -I .\Utilities\STM32_EVAL\Common -I .\Utilities\STM32_EVAL\STM3210E_EVAL-I.\RTE\_Target_1-I"D:\program files (x86)\keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"D:\program files (x86)\keil5\ARM\CMSIS\Include"-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DUSE_STM3210E_EVAL-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main\main.c)(0x5D760A99)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Libraries\CMSIS\CM3\CoreSupport -I .\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x -I .\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm -I .\Libraries\STM32F10x_StdPeriph_Driver\inc -I .\main -I .\FreeRTOS\include -I .\FreeRTOS\portable\RVDS\ARM_CM3 -I .\User -I .\User\include -I .\fatfs -I .\Utilities\STM32_EVAL -I .\Utilities\STM32_EVAL\Common -I .\Utilities\STM32_EVAL\STM3210E_EVAL-I.\RTE\_Target_1-I"D:\program files (x86)\keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"D:\program files (x86)\keil5\ARM\CMSIS\Include"-D__UVISION_VERSION="523" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER -DUSE_STM3210E_EVAL-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h)(0x4D783CB4)
 I (.\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h)(0x4D523B58)
 I (D:\program files (x86)\keil5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
@@ -44,7 +44,7 @@ I (.\FreeRTOS\include\timers.h)(0x5CDEA409)
 I (.\User\include\Tom_Common_Api.h)(0x5D5817D8)
 I (D:\program files (x86)\keil5\ARM\ARMCC\include\string.h)(0x57F606B8)
 I (D:\program files (x86)\keil5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
-I (.\User\include\use_config.h)(0x5D7604CF)
+I (.\User\include\use_config.h)(0x5D760A08)
 I (.\fatfs\ff.h)(0x5D6250EB)
 I (.\fatfs\integer.h)(0x49CF8438)
 I (.\fatfs\ffconf.h)(0x5D624CB5)
