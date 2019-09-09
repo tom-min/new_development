@@ -1,9 +1,0 @@
-.\stm322xg_eval\cjson.o: ..\USER\cJSON\cJSON.c
-.\stm322xg_eval\cjson.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
-.\stm322xg_eval\cjson.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-.\stm322xg_eval\cjson.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
-.\stm322xg_eval\cjson.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
-.\stm322xg_eval\cjson.o: C:\Keil\ARM\ARMCC\bin\..\include\float.h
-.\stm322xg_eval\cjson.o: C:\Keil\ARM\ARMCC\bin\..\include\limits.h
-.\stm322xg_eval\cjson.o: C:\Keil\ARM\ARMCC\bin\..\include\ctype.h
-.\stm322xg_eval\cjson.o: ..\USER\cJSON\cJSON.h

@@ -1,9 +1,0 @@
-Build target 'STM322xG_EVAL'
-linking...
-.\STM322xG_EVAL\STM32F2xx_FCAR_OBDII_APP_V1_00_20190327_12m.axf: Warning: L6304W: Duplicate input file .\stm322xg_eval\code.o ignored.
-.\STM322xG_EVAL\STM32F2xx_FCAR_OBDII_APP_V1_00_20190327_12m.axf: Warning: L6304W: Duplicate input file .\stm322xg_eval\hardware.o ignored.
-.\STM322xG_EVAL\STM32F2xx_FCAR_OBDII_APP_V1_00_20190327_12m.axf: Warning: L6304W: Duplicate input file .\stm322xg_eval\usart1.o ignored.
-.\STM322xG_EVAL\STM32F2xx_FCAR_OBDII_APP_V1_00_20190327_12m.axf: Warning: L6304W: Duplicate input file .\stm322xg_eval\bluewifi.o ignored.
-Program Size: Code=9016 RO-data=772 RW-data=144 ZI-data=4152  
-FromELF: creating hex file...
-".\STM322xG_EVAL\STM32F2xx_FCAR_OBDII_APP_V1_00_20190327_12m.axf" - 0 Errors, 4 Warning(s).

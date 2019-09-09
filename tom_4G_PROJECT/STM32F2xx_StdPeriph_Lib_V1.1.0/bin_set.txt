@@ -1,1 +1,0 @@
-fromelf --bin --output .\rvmdk\haha.bin .\rvmdk\haha.axf
